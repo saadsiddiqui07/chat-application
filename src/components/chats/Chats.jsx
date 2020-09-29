@@ -8,8 +8,8 @@ import AttachFileIcon from "@material-ui/icons/AttachFile";
 import MicIcon from "@material-ui/icons/Mic";
 import SendIcon from "@material-ui/icons/Send";
 import { useParams } from "react-router-dom";
-import db from "../firebase/firebase.js";
-import { useStateValue } from "../context/StateProvider";
+import db from "../../firebase/firebase";
+import { useStateValue } from "../../context/StateProvider";
 import firebase from "firebase";
 
 const Chats = () => {
@@ -30,30 +30,27 @@ const Chats = () => {
     if (roomId) {
       db.collection("rooms")
         .doc(roomId)
-        .onSnapshot(snapshot => setRoomName(snapshot.data().name));
+        .onSnapshot((snapshot) => setRoomName(snapshot.data().name));
 
-      // fetching messages from different rooms through (roomId) from the database
+      // fetching messages of different rooms through (roomId) from the database
       db.collection("rooms")
         .doc(roomId)
         .collection("messages")
         .orderBy("timestamp", "asc")
-        .onSnapshot(snapshot =>
-          setMessages(snapshot.docs.map(doc => doc.data()))
+        .onSnapshot((snapshot) =>
+          setMessages(snapshot.docs.map((doc) => doc.data()))
         );
     }
   }, [roomId]);
 
   // function to send a message and store in the database
-  const sendMessage = e => {
+  const sendMessage = (e) => {
     e.preventDefault();
-    db.collection("rooms")
-      .doc(roomId)
-      .collection("messages")
-      .add({
-        message: input,
-        name: user.displayName,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      });
+    db.collection("rooms").doc(roomId).collection("messages").add({
+      message: input,
+      name: user.displayName,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
     setInput("");
   };
 
@@ -75,10 +72,11 @@ const Chats = () => {
         </div>
       </div>
       <div className="chats__body">
-        {messages.map(message => (
+        {messages.map((message) => (
           <p
-            className={`chats__message ${message.name === user.displayName &&
-              "chats__user"}`}
+            className={`chats__message ${
+              message.name === user.displayName && "chats__user"
+            }`}
           >
             <span className="chats__name">{message.name}</span>
             {message.message}
@@ -95,7 +93,7 @@ const Chats = () => {
           <input
             disabled={!user}
             value={input}
-            onChange={e => setInput(e.target.value)}
+            onChange={(e) => setInput(e.target.value)}
             type="text"
             placeholder="Type a message"
           />

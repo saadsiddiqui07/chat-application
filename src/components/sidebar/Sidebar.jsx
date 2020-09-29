@@ -6,8 +6,8 @@ import MessageIcon from "@material-ui/icons/Message";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import SearchIcon from "@material-ui/icons/Search";
 import SidebarChats from "./SidebarChats";
-import db from "../firebase/firebase";
-import { useStateValue } from "../context/StateProvider.js";
+import db from "../../firebase/firebase";
+import { useStateValue } from "../../context/StateProvider";
 
 const Sidebar = () => {
   const [rooms, setRooms] = useState([]);

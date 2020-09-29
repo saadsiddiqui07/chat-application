@@ -1,9 +1,9 @@
 import React from "react";
 import "./Login.css";
 import { Button } from "@material-ui/core";
-import { auth, provider } from "../firebase/firebase";
-import { useStateValue } from "../context/StateProvider.js";
-import { actionType } from "../context/reducer.js";
+import { auth, provider } from "../../firebase/firebase";
+import { useStateValue } from "../../context/StateProvider";
+import { actionType } from "../../context/reducer";
 
 const Login = () => {
   // eslint-disable-next-line no-unused-vars
