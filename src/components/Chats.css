@@ -1,0 +1,121 @@
+.chats {
+  flex: 0.65;
+  display: flex;
+  flex-direction: column;
+}
+
+.chats__header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+  justify-content: space-between;
+}
+
+.chats__headerInfo {
+  padding-left: 15px;
+  flex: 1;
+}
+
+.chats__headerInfo > h3 {
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 3px;
+}
+
+.chats__headerInfo > p {
+  color: gray;
+  font-size: 12px;
+}
+
+.chats__headerRight {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-with: 800px) {
+  .chats__headerRight {
+    display: none;
+  }
+}
+
+.chats__body {
+  flex: 1;
+  background-image: url("https://raw.githubusercontent.com/Urigo/WhatsApp-Clone-Client-Angular/master/src/assets/chat-background.jpg");
+  background-repeat: repeat;
+  background-position: center;
+  padding: 30px;
+  overflow: scroll;
+}
+
+.chats__body::-webkit-scrollbar {
+  display: none;
+}
+
+.chats__message {
+  position: relative;
+  width: fit-content;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+.chats__name {
+  position: absolute;
+  top: -13px;
+  font-weight: 600;
+  font-size: xx-small;
+}
+
+.chats__timestamp {
+  margin-left: 15px;
+  font-size: xx-small;
+  color: gray;
+}
+
+.chats__user {
+  margin-left: auto;
+  background-color: #dcf8c6;
+}
+
+.chats__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  height: 60px;
+  border-top: 1px solid lightgray;
+}
+
+.chats__footer > form {
+  flex: 1;
+  display: flex;
+}
+
+.chats__footer > form > input {
+  border: none;
+  outline-width: 0;
+  border-radius: 30px;
+  height: 20px;
+  flex: 1;
+  padding: 10px;
+}
+
+.chats__footer > .MuiSvgIcon-root {
+  color: gray;
+  margin-right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.chats__footer > form > button {
+  display: none;
+}
+
+.chats__footerIcon {
+  cursor: pointer;
+
+  margin-left: 10px;
+}
