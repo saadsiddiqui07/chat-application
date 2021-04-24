@@ -6,7 +6,7 @@ import MessageIcon from "@material-ui/icons/Message";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import SearchIcon from "@material-ui/icons/Search";
 import SidebarChats from "./SidebarChats";
-import db from "../../firebase/firebase";
+import db, { auth } from "../../firebase/firebase";
 import { useStateValue } from "../../context/StateProvider";
 
 const Sidebar = () => {
@@ -23,8 +23,8 @@ const Sidebar = () => {
         }))
       )
     );
+    // performing a clean up action
     return () => {
-      // performing a clean up action
       unsubscribe();
     };
   }, []);
@@ -32,7 +32,13 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar__header">
-        <Avatar src={user.photoURL} /> {user.displayName}
+        <Avatar
+          style={{
+            cursor: "pointer",
+          }}
+          src={user.photoURL}
+          onClick={() => auth.signOut()}
+        />
         <div className="sidebar__headerRight">
           <IconButton>
             <DonutLargeIcon />

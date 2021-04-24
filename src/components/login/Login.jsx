@@ -3,10 +3,9 @@ import "./Login.css";
 import { Button } from "@material-ui/core";
 import { auth, provider } from "../../firebase/firebase";
 import { useStateValue } from "../../context/StateProvider";
-import { actionType } from "../../context/reducer";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
-  // eslint-disable-next-line no-unused-vars
   const [{ user }, dispatch] = useStateValue();
 
   // sign in function
@@ -17,7 +16,7 @@ const Login = () => {
       .then((result) => {
         // console.log(result);
         dispatch({
-          type: actionType.SET_USER,
+          type: "SET_USER",
           user: result.user,
         });
       })
