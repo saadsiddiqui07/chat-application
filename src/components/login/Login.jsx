@@ -3,10 +3,9 @@ import "./Login.css";
 import { Button } from "@material-ui/core";
 import { auth, provider } from "../../firebase/firebase";
 import { useStateValue } from "../../context/StateProvider";
-import { useHistory } from "react-router-dom";
 
 const Login = () => {
-  const [{ user }, dispatch] = useStateValue();
+  const [{},dispatch] = useStateValue();
 
   // sign in function
   const signIn = (e) => {
@@ -26,11 +25,11 @@ const Login = () => {
     <div className="login">
       <div className="login__container">
         <img
-          src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/WhatsApp_Logo_1.png"
+          src="https://cdn.dribbble.com/users/1139587/screenshots/14727882/media/d8bf906f70115d4af55f4f265349780c.png?compress=1&resize=400x300"
           alt=""
         />
         <div className="login__text">
-          <h3>Sign In to WhatsApp</h3>
+          <h3>Sign In to NextChat</h3>
         </div>
         <Button onClick={signIn}>Sign In with Google</Button>
       </div>

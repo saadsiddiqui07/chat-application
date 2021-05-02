@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./Chats.css";
 import { Avatar, IconButton } from "@material-ui/core";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import SearchIcon from "@material-ui/icons/Search";
@@ -11,6 +10,7 @@ import { useParams } from "react-router-dom";
 import db from "../../firebase/firebase";
 import { useStateValue } from "../../context/StateProvider";
 import firebase from "firebase";
+import "./Chats.css";
 
 const Chats = () => {
   const [input, setInput] = useState("");
@@ -31,7 +31,6 @@ const Chats = () => {
       db.collection("rooms")
         .doc(roomId)
         .onSnapshot((snapshot) => setRoomName(snapshot.data().name));
-
       // fetching messages of different rooms through (roomId) from the database
       db.collection("rooms")
         .doc(roomId)

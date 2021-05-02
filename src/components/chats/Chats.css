@@ -41,11 +41,9 @@
 
 .chats__body {
   flex: 1;
-  background-image: url("https://raw.githubusercontent.com/Urigo/WhatsApp-Clone-Client-Angular/master/src/assets/chat-background.jpg");
-  background-repeat: repeat;
-  background-position: center;
   padding: 30px;
   overflow: scroll;
+  background-color: lightgray;
 }
 
 .chats__body::-webkit-scrollbar {

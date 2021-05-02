@@ -18,6 +18,8 @@
   padding: 100px;
   border: 1px solid lightgray;
   box-shadow: 0px 5px 17px -7px rgba(0, 0, 0, 0.75);
+  background-color: #0C102B;
+  color: white;
 }
 
 .login__container > button {
